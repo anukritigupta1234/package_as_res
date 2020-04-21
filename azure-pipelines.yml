@@ -1,0 +1,14 @@
+trigger: none
+
+resources:
+  packages:
+   - package: somePackage
+     type: Nuget
+     connection: gh-rg
+     name: nugetTest/OctocatApp
+     version: 2.1.10
+     trigger: true
+     
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
