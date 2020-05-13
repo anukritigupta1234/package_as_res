@@ -2,13 +2,22 @@ trigger: none
 
 resources:
   packages:
-   - package: somePackage
+   - package: pac1
      type: Nuget
-     connection: gh-rg
+     connection: github_pat
      name: nugetTest/OctocatApp
-     version: 2.1.10
+     version: 1.0.1
      trigger: true
+    
+stages:
+ - stage: ConsumeArtifact
+   jobs:
+     - job: job1
+       pool:
+        name: Default
+       steps:
+        - getPackage: pac1
      
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+# steps:
+# - script: echo Hello, world!
+#   displayName: 'Run a one-line script'
